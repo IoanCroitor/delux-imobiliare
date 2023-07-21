@@ -1,0 +1,17 @@
+          <div class="absolute bottom-2 right-2 flex items-center justify-center w-auto h-4 px-1 rounded-full align-middle backdrop-blur-3xl">
+
+            {#each adImagesURL as _, i}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div class="mr-1 w-2 h-2 rounded-full cursor-pointer {selected === i ? 'bg-blue-500' : 'bg-gray-300'}"
+              on:click={() => (selected = i)}>
+          </div>
+          {/each}
+          </div>
+          {#each adImagesURL as image, i}
+            <img
+              class="w-full h-full object-cover object-center rounded-2xl user-select-none pointer-events-none {selected === i ? 'block' : 'hidden'}"
+              src={image}
+              alt={`Image ${i + 1}`}
+            />
+          {/each}
+        </div>
